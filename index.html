@@ -14,6 +14,15 @@
 <body style="margin: 0px; font-family: 'Times New Roman', Times, serif; font-weight: normal;">
 
     <style>
+        .backgroundimage {
+            background-image: url(edging.png);
+            background-size: 150px;
+            width: 10%;
+            height: 100%;
+            position: fixed;
+            align-self: left;
+            margin: 0px;
+        }
         .articlebox {
             margin-top: 50px;
             border: 2px solid black;
@@ -35,7 +44,9 @@
             text-decoration: inherit;
         }
     </style>
+    <div class="backgroundimage">
 
+    </div>
     <div style="background-color: rgba(182,215,168,255); width: 100%; text-align: center; color: rgb(255, 255, 255); margin-top: 50px; position: sticky; top: 10px; z-index: 100;">
         <hr style="height:5px; margin: 0px; width:100%; border:0px; border-bottom:4px solid black;">
         <h1 style="margin:10px; font-size: 100px; line-height: 100px; font-weight:normal;">Post Oak Press</h1>
@@ -46,13 +57,13 @@
             Articles
         </h2>
     </div>
-    <div style="margin-left: 25%; width: 50%;" id="article3container">
+    <div style="margin-left: 25%; width: 50%;" id="article2container">
         <a href="article1.html">
-            <table class="articlebox" id="article1">
+            <table class="articlebox" id="article2">
                 <tr>
                     <td>
                         <h1 style="margin: 0px; text-align: left;">
-                            Third Addition!
+                            Second Addition!
                         </h1>
                         <p class="bulletpoints">• Introduction of:</p>
                         <p class="bulletpoints indent">- Community Meeting</p>
@@ -72,7 +83,7 @@
     </div>
     <div style="margin-left: 25%; width: 50%;" id="article2container">
         <a href="article1.html">
-            <table class="articlebox" id="article1">
+            <table class="articlebox" id="article2">
                 <tr>
                     <td>
                         <h1 style="margin: 0px; text-align: left;">
@@ -96,7 +107,7 @@
     </div>
     <div style="margin-left: 25%; width: 50%;" id="article1container">
         <a href="article1.html">
-            <table class="articlebox" id="article1">
+            <table class="articlebox" id="article1" style="margin-bottom: 50px;">
                 <tr>
                     <td>
                         <h1 style="margin: 0px; text-align: left;">
@@ -125,10 +136,12 @@
         document.getElementById("article1container").addEventListener("mouseout", article1out);
         
         function article1hover() {
-            document.getElementById("article1").style.boxShadow = "10px 10px 10px black";
+            while (i>= 240, i = 255, i--) {
+                document.getElementById("article1").style.backgroundColor = "rgb(240, 240, 240)";
+            }
         }
         function article1out() {
-            document.getElementById("article1").style.boxShadow = "5px 5px 5px black";
+            document.getElementById("article1").style.backgroundColor = "rgb(255, 255, 255)";
         }
     </script>
 </body>
