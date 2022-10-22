@@ -26,6 +26,13 @@
             margin: 0px;
             z-index: 1;
         }
+        
+        .boxcontainer {
+            margin-left: 25%; 
+            width: 50%; 
+            margin-right: 25%;
+        }
+
         .articlebox {
             margin-top: 50px;
             border: 2px solid black;
@@ -33,90 +40,140 @@
             height: auto;
             box-shadow: 5px 5px 5px black;
             padding: 20px;
-            
+            background-color: white;
+            transition-duration: 0.2s;
+            width: 100%;
         }
+
+        .articlebox:hover {
+            background-color: rgb(240,240,240);
+        }
+
+        .headers {
+            margin: 0px; 
+            text-align: left;
+        }
+
         .bulletpoints {
             margin: 10px;
+            text-align: left;
         }
 
         .indent {
             padding-left: 30px;
         }
-        a {
+
+        a{
             color: inherit;
             text-decoration: inherit;
         }
     </style>
+
+    <!-- Webpage Borders -->
     <div class="backgroundimage" style="left: 0px;"></div>
     <div class="backgroundimage" style="transform: scaleX(-1); right: 0px;"></div>
+
+    <!-- Header -->
     <div style="background-color: rgba(182,215,168,255); width: 100%; text-align: center; color: rgb(255, 255, 255); margin-top: 50px; position: sticky; top: 0px; z-index: 100;">
         <hr style="height:5px; margin: 0px; width:100%; border:0px; border-bottom:4px solid black;">
         <h1 style="margin:10px; font-size: 100px; line-height: 100px; font-weight:normal;">Post Oak Press</h1>
         <hr style="height:5px; margin: 0px; width:100%; border:0px; border-top:4px solid black;">
     </div>
+
+    <!-- Page Name -->
     <div style="position: sticky; top: 50px;">
         <h2 style="font-style:italic; text-align: center; margin: 10px; font-size: 30px;" id="testtext">
             Articles
         </h2>
     </div>
 
-    <!-- Article 2 -->
-    <div style="margin-left: 25%; width: 50%; margin-right: 25%;" id="article2container"><a href="article1.html"><table class="articlebox" id="article2"><tr>
-                    <td>
-                        <h1 style="margin: 0px; text-align: left;">
-                            Halloween edition!
-                        </h1>
-                        <p class="bulletpoints">• Coming soon...</p>
-                    </td>
-                    <td width="50%">
-                        <img src="pumpkin.png" align="right" alt="Whole School Picture Goes Here (Your browser can't see it)" style="width: 50%; margin: 0px;">
-                    </td>
+    <!-- ------------------------------------------------------------------------------------------------------------------------------------------------ Article 2 -->
+    <div class="boxcontainer"><a><table class="articlebox"><tr>
+        
+        <!-- Text -->
+        <td>
+            <h1 class="headers">
+                Halloween edition!
+            </h1>
+            <h4 class="headers">
+                
+            </h4>
+            <p class="bulletpoints mobilespace">• Coming soon...</p>
+        </td>
+        
+        <!-- Image -->
+        <td width="50%" class="picture">
+            <img src="pumpkin.png" align="right" alt="Pumpkin Goes Here (Your browser can't see it)" style="width: 50%; margin: 0px;">
+        </td>
+        
     </tr></table></a></div>
 
-    <!-- Article 1 -->
-    <div style="margin-left: 25%; width: 50%; margin-right: 25%;" id="article1container"><a href="article1.html"><table class="articlebox" id="article1" style="margin-bottom: 50px;"><tr>
-                        <td>
-                            <h1 style="margin: 0px; text-align: left;">
-                                First Addition!
-                            </h1>
-                            <p class="bulletpoints">• Introduction of:</p>
-                            <p class="bulletpoints indent">- Community Meeting</p>
-                            <p class="bulletpoints indent">- Staff Spotlight</p>
-                            <p class="bulletpoints indent">- Sports</p>
-                            <p class="bulletpoints indent">- Internships</p>
-                            <p class="bulletpoints indent">- Word Search</p>
-                            <p class="bulletpoints indent">- Post Oak Pets</p>
-                            <p class="bulletpoints">• Odyssey!</p>
-                        </td>
-                        <td width="50%">
-                            <img src="wholeschoolpic.png" align="right" alt="Whole School Picture Goes Here (Your browser can't see it)" style="width: 100%; margin: 0px;">
-                        </td>
+    <!-- ------------------------------------------------------------------------------------------------------------------------------------------------ Article 1 -->
+    <div class="boxcontainer"><a href="article1.html"><table class="articlebox" style="margin-bottom: 50px;"><tr>
+        
+        <!-- Text -->          
+        <td>
+            <h1 class="headers">
+                First Addition!
+            </h1>
+            <h4 class="headers">
+                October 18, 2022
+            </h4>
+            <p class="bulletpoints mobilespace">• Introduction of:</p>
+            <p class="bulletpoints indent">- Community Meeting</p>
+            <p class="bulletpoints indent">- Staff Spotlight</p>
+            <p class="bulletpoints indent">- Sports</p>
+            <p class="bulletpoints indent">- Internships</p>
+            <p class="bulletpoints indent">- Word Search</p>
+            <p class="bulletpoints indent">- Post Oak Pets</p>
+            <p class="bulletpoints mobilespace">• Odyssey!</p>
+        </td>
+
+        <!-- Image -->
+        <td width="50%" class="picture">
+            <img src="wholeschoolpic.png" align="right" alt="Whole School Picture Goes Here (Your browser can't see it)" style="width: 100%; margin: 0px; border-radius: 25px;">
+        </td>
+
     </tr></table></a></div>
+
+    <p id="console" style="text-align: center;"> test </p>
+
     <script>
-        function sleep(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
-        }
+        //Detecting screen size and adjusting content accordingly
         
-        //if hover over turn grey
-        document.getElementById("article1container").addEventListener("mouseover", article1hover);
-        document.getElementById("article1container").addEventListener("mouseout", article1out);
-        let i = 255
-        async function article1hover() {
-            while (i >= 240) {
-                document.getElementById("article1").style.backgroundColor = "rgb("+i+","+i+","+i+")";
-                i--
-                await sleep(1);
+        function detectscreensize() {
+            const width = window.innerWidth;
+
+            if (width < 1000) {
+                var pictures = document.querySelectorAll('.picture');
+                pictures.forEach(picture => {
+                    picture.remove();
+                });
+
+                var heanum = document.getElementsByClassName('headers');
+                for (var i = 0; i < heanum.length; i++) {
+                    heanum[i].style.textAlign = "center";
+                }
+
+                var bulnum = document.getElementsByClassName('bulletpoints');
+                for (var i2 = 0; i2 < bulnum.length; i2++) {
+                    bulnum[i2].style.textAlign = "center";
+                }
+
+                var indnum = document.getElementsByClassName('indent');
+                for (var i3 = 0; i3 < indnum.length; i3++) {
+                    indnum[i3].style.paddingLeft = "0px";
+                }
+
+                var spanum = document.getElementsByClassName('mobilespace');
+                for (var i4 = 0; i4 < spanum.length; i4++) {
+                    spanum[i4].style.whiteSpace = "pre-line";
+                    spanum[i4].innerHTML = "\n \n" + spanum[i4].innerHTML;
+                }
             }
         }
-        async function article1out() {
-            while (i <= 255) {
-                document.getElementById("article1").style.backgroundColor = "rgb("+i+","+i+","+i+")";
-                i++
-                await sleep(1);
-            }
-            document.getElementById("article1").style.backgroundColor = "rgb(255,255,255)";
-        }
         
+    window.onload = detectscreensize;
     </script>
 </body>
 
