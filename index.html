@@ -15,7 +15,7 @@
 
     <style>
         .backgroundimage {
-            background-image: url(edging.png);
+            background-image: url(simpleedging.png);
             background-repeat: no-repeat;
             background-repeat: repeat-y;
             background-size: 100%;
@@ -59,92 +59,64 @@
             Articles
         </h2>
     </div>
-    <div style="margin-left: 25%; width: 50%;" id="article2container">
-        <a href="article1.html">
-            <table class="articlebox" id="article2">
-                <tr>
+
+    <!-- Article 2 -->
+    <div style="margin-left: 25%; width: 50%; margin-right: 25%;" id="article2container"><a href="article1.html"><table class="articlebox" id="article2"><tr>
                     <td>
                         <h1 style="margin: 0px; text-align: left;">
-                            Second Addition!
+                            Halloween edition!
                         </h1>
-                        <p class="bulletpoints">• Introduction of:</p>
-                        <p class="bulletpoints indent">- Community Meeting</p>
-                        <p class="bulletpoints indent">- Staff Spotlight</p>
-                        <p class="bulletpoints indent">- Sports</p>
-                        <p class="bulletpoints indent">- Internships</p>
-                        <p class="bulletpoints indent">- Word Search</p>
-                        <p class="bulletpoints indent">- Post Oak Pets</p>
-                        <p class="bulletpoints">• Odyssey!</p>
+                        <p class="bulletpoints">• Coming soon...</p>
                     </td>
-                    <td width="40%">
-                        <img src="wholeschoolpic.png" align="right" alt="Whole School Picture Goes Here (Your browser can't see it)" style="height: 250px; margin: 0px;">
+                    <td width="50%">
+                        <img src="pumpkin.png" align="right" alt="Whole School Picture Goes Here (Your browser can't see it)" style="width: 50%; margin: 0px;">
                     </td>
-                </tr>
-            </table>
-        </a>
-    </div>
-    <div style="margin-left: 25%; width: 50%;" id="article2container">
-        <a href="article1.html">
-            <table class="articlebox" id="article2">
-                <tr>
-                    <td>
-                        <h1 style="margin: 0px; text-align: left;">
-                            Second Addition!
-                        </h1>
-                        <p class="bulletpoints">• Introduction of:</p>
-                        <p class="bulletpoints indent">- Community Meeting</p>
-                        <p class="bulletpoints indent">- Staff Spotlight</p>
-                        <p class="bulletpoints indent">- Sports</p>
-                        <p class="bulletpoints indent">- Internships</p>
-                        <p class="bulletpoints indent">- Word Search</p>
-                        <p class="bulletpoints indent">- Post Oak Pets</p>
-                        <p class="bulletpoints">• Odyssey!</p>
-                    </td>
-                    <td width="40%">
-                        <img src="wholeschoolpic.png" align="right" alt="Whole School Picture Goes Here (Your browser can't see it)" style="height: 250px; margin: 0px;">
-                    </td>
-                </tr>
-            </table>
-        </a>
-    </div>
-    <div style="margin-left: 25%; width: 50%;" id="article1container">
-        <a href="article1.html">
-            <table class="articlebox" id="article1" style="margin-bottom: 50px;">
-                <tr>
-                    <td>
-                        <h1 style="margin: 0px; text-align: left;">
-                            First Addition!
-                        </h1>
-                        <p class="bulletpoints">• Introduction of:</p>
-                        <p class="bulletpoints indent">- Community Meeting</p>
-                        <p class="bulletpoints indent">- Staff Spotlight</p>
-                        <p class="bulletpoints indent">- Sports</p>
-                        <p class="bulletpoints indent">- Internships</p>
-                        <p class="bulletpoints indent">- Word Search</p>
-                        <p class="bulletpoints indent">- Post Oak Pets</p>
-                        <p class="bulletpoints">• Odyssey!</p>
-                    </td>
-                    <td width="40%">
-                        <img src="wholeschoolpic.png" align="right" alt="Whole School Picture Goes Here (Your browser can't see it)" style="height: 250px; margin: 0px;">
-                    </td>
-                </tr>
-            </table>
-        </a>
-    </div>
+    </tr></table></a></div>
+
+    <!-- Article 1 -->
+    <div style="margin-left: 25%; width: 50%; margin-right: 25%;" id="article1container"><a href="article1.html"><table class="articlebox" id="article1" style="margin-bottom: 50px;"><tr>
+                        <td>
+                            <h1 style="margin: 0px; text-align: left;">
+                                First Addition!
+                            </h1>
+                            <p class="bulletpoints">• Introduction of:</p>
+                            <p class="bulletpoints indent">- Community Meeting</p>
+                            <p class="bulletpoints indent">- Staff Spotlight</p>
+                            <p class="bulletpoints indent">- Sports</p>
+                            <p class="bulletpoints indent">- Internships</p>
+                            <p class="bulletpoints indent">- Word Search</p>
+                            <p class="bulletpoints indent">- Post Oak Pets</p>
+                            <p class="bulletpoints">• Odyssey!</p>
+                        </td>
+                        <td width="50%">
+                            <img src="wholeschoolpic.png" align="right" alt="Whole School Picture Goes Here (Your browser can't see it)" style="width: 100%; margin: 0px;">
+                        </td>
+    </tr></table></a></div>
     <script>
-        //article1hover()
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
         
+        //if hover over turn grey
         document.getElementById("article1container").addEventListener("mouseover", article1hover);
         document.getElementById("article1container").addEventListener("mouseout", article1out);
-        
-        function article1hover() {
-            while (i>= 240, i = 255, i--) {
-                document.getElementById("article1").style.backgroundColor = "rgb(240, 240, 240)";
+        let i = 255
+        async function article1hover() {
+            while (i >= 240) {
+                document.getElementById("article1").style.backgroundColor = "rgb("+i+","+i+","+i+")";
+                i--
+                await sleep(1);
             }
         }
-        function article1out() {
-            document.getElementById("article1").style.backgroundColor = "rgb(255, 255, 255)";
+        async function article1out() {
+            while (i <= 255) {
+                document.getElementById("article1").style.backgroundColor = "rgb("+i+","+i+","+i+")";
+                i++
+                await sleep(1);
+            }
+            document.getElementById("article1").style.backgroundColor = "rgb(255,255,255)";
         }
+        
     </script>
 </body>
 
