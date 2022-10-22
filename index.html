@@ -15,7 +15,7 @@
 
     <style>
         .backgroundimage {
-            background-image: url(simpleedging.png);
+            background-image: url(index-media/simpleedginglq.png);
             background-repeat: no-repeat;
             background-repeat: repeat-y;
             background-size: 100%;
@@ -80,7 +80,7 @@
         <table style="width: 100%;">
             <tr>
                 <td style="width: 10%;">
-                    <img id="homebutton" src="home.png" align="left" alt="Home Button" style="width: 100px; margin: 0px; margin-left: 20px;">
+                    <img id="homebutton" src="index-media/home.png" align="left" alt="Home Button" style="width: 100px; margin: 0px; margin-left: 20px;">
                 </td>
                 <td style="width: 80%;">
                     <h1 style="margin:10px; font-size: 100px; line-height: 100px; font-weight:normal; text-align: center;" id="title">Post Oak Press</h1>
@@ -95,7 +95,7 @@
 
     <!-- Page Name -->
     <div style="position: sticky; top: 50px;">
-        <h2 style="font-style:italic; text-align: center; margin: 10px; font-size: 30px;" id="testtext">
+        <h2 style="font-style:italic; text-align: center; margin: 10px; font-size: 30px;" id="date">
             Articles
         </h2>
     </div>
@@ -116,7 +116,7 @@
         
         <!-- Image -->
         <td width="50%" class="picture">
-            <img src="pumpkin.png" align="right" alt="Pumpkin Goes Here (Your browser can't see it)" style="width: 50%; margin: 0px;">
+            <img src="index-media/pumpkin.png" align="right" alt="Pumpkin Goes Here (Your browser can't see it)" style="width: 50%; margin: 0px;">
         </td>
         
     </tr></table></a></div>
@@ -144,7 +144,7 @@
 
         <!-- Image -->
         <td width="50%" class="picture">
-            <img src="wholeschoolpic.png" align="right" alt="Whole School Picture Goes Here (Your browser can't see it)" style="width: 100%; margin: 0px; border-radius: 25px;">
+            <img src="index-media/wholeschoolpic2.jpg" align="right" alt="Whole School Picture Goes Here (Your browser can't see it)" style="width: 100%; margin: 0px; border-radius: 25px;">
         </td>
 
     </tr></table></a></div>
@@ -160,6 +160,9 @@
                 home.remove();
 
                 document.getElementById('title').style.fontSize = "50px"
+                document.getElementById('date').style.fontSize = "20px"
+
+                document.getElementById('date').innerHTML = document.getElementById('date').innerHTML + " - Mobile Reader (Not Reccomended)"
                 
                 var pictures = document.querySelectorAll('.picture');
                 pictures.forEach(picture => {

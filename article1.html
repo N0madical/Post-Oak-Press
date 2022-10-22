@@ -11,21 +11,87 @@
     <title>Post Oak Post</title>
 </head>
 
-<body style="margin: 0px; font-family: 'Times New Roman', Times, serif; font-weight: normal;">
-    <div style="background-color: rgba(182,215,168,255); width: 100%; text-align: center; color: rgb(255, 255, 255); margin-top: 50px; position: sticky; top: 10px; z-index: 100;">
+<body style="margin: 0px; font-family: 'Times New Roman', Times, serif; font-weight: normal;"></body>
+
+    <style>
+        .backgroundimage {
+            background-image: url(index-media/simpleedginglq.png);
+            background-repeat: no-repeat;
+            background-repeat: repeat-y;
+            background-size: 100%;
+            width: 10%;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            margin: 0px;
+            z-index: 1;
+        }
+
+        a{
+            color: inherit;
+            text-decoration: inherit;
+        }
+    </style>
+
+    <!-- Webpage Borders -->
+    <div class="backgroundimage" style="left: 0px;"></div>
+    <div class="backgroundimage" style="transform: scaleX(-1); right: 0px;"></div>
+
+    <!-- Header -->
+    <div style="background-color: rgba(182,215,168,255); width: 100%; text-align: center; color: rgb(255, 255, 255); margin-top: 50px; position: sticky; top: 0px; z-index: 100;">
         <hr style="height:5px; margin: 0px; width:100%; border:0px; border-bottom:4px solid black;">
-        <h1 style="margin:10px; font-size: 100px; line-height: 100px; font-weight:normal;">Post Oak Press</h1>
+        <a href="index.html">
+        <table style="width: 100%;">
+            <tr>
+                <td style="width: 10%;">
+                    <img id="homebutton" src="index-media/home.png" align="left" alt="Home Button" style="width: 100px; margin: 0px; margin-left: 20px;">
+                </td>
+                <td style="width: 80%;">
+                    <h1 style="margin:10px; font-size: 100px; line-height: 100px; font-weight:normal; text-align: center;" id="title">Post Oak Press</h1>
+                </td>
+                <td style="width: 10%; right: 0px;"></td>
+            </tr>
+        </table>
+        </a>
+        
         <hr style="height:5px; margin: 0px; width:100%; border:0px; border-top:4px solid black;">
     </div>
+
+    <!-- Page Name -->
     <div style="position: sticky; top: 50px;">
-        <p style="font-style:italic; text-align: center; margin: 10px; font-size: 20px;">
+        <p style="font-style:italic; text-align: center; margin: 10px; font-size: 30px;" id="date">
             October 18, 2022
         </p>
     </div>
-    <div>
-        
+
+    <!-- Doc Images -->
+    <div style="margin-left: 20%; margin-right: 20%; width: 60%; margin-bottom: 100px; margin-top: 50px;">
+        <img src="article1/1st.png" align="center" alt="Page 1 (Your browser can't see it)" style="width: 100%; margin: 0px;">
+        <img src="article1/2nd.png" align="center" alt="Page 1 (Your browser can't see it)" style="width: 100%; margin: 0px;">
+        <img src="article1/3rd.png" align="center" alt="Page 1 (Your browser can't see it)" style="width: 100%; margin: 0px;">
+        <img src="article1/4th.png" align="center" alt="Page 1 (Your browser can't see it)" style="width: 100%; margin: 0px;">
     </div>
     
+    <script>
+        //Detecting screen size and adjusting content accordingly
+        
+        function detectscreensize() {
+            const width = window.innerWidth;
+
+            if (width < 1000) {
+                var home = document.getElementById('homebutton')
+                home.remove();
+
+                document.getElementById('title').style.fontSize = "50px"
+                document.getElementById('date').style.fontSize = "20px"
+
+                document.getElementById('date').innerHTML = document.getElementById('date').innerHTML + " - Mobile Reader (Not Reccomended)"
+            }
+        }
+        
+    window.onload = detectscreensize;
+    </script>
+
 </body>
 
 </html>
