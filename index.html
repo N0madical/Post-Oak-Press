@@ -19,8 +19,8 @@
             background-repeat: no-repeat;
             background-repeat: repeat-y;
             background-size: 100%;
-            width: 10%;
-            height: 100%;
+            width: 5%;
+            height: 200%;
             position: fixed;
             top: 0px;
             margin: 0px;
@@ -70,8 +70,8 @@
     </style>
 
     <!-- Webpage Borders -->
-    <div class="backgroundimage" style="left: 0px;"></div>
-    <div class="backgroundimage" style="transform: scaleX(-1); right: 0px;"></div>
+    <div class="backgroundimage" id="leftborder" style="left: 0px; margin-top: 0px;"></div>
+    <div class="backgroundimage" id="rightborder" style="transform: scaleX(-1); right: 0px; margin-top: 0px;"></div>
 
     <!-- Header -->
     <div style="background-color: rgba(182,215,168,255); width: 100%; text-align: center; color: rgb(255, 255, 255); margin-top: 50px; position: sticky; top: 0px; z-index: 100;">
@@ -193,6 +193,13 @@
             }
         }
         
+        async function scrollborders() {
+            var scroll = document.documentElement.scrollTop
+            document.getElementById('leftborder').style.marginTop = scroll*-0.2 + "px"
+            document.getElementById('rightborder').style.marginTop = scroll*-0.2 + "px"
+        }
+
+    window.onscroll = scrollborders
     window.onload = detectscreensize;
     </script>
 </body>
