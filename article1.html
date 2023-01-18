@@ -58,8 +58,8 @@
     </div>
 
     <!-- Page Name -->
-    <div style="position: sticky; top: 50px;">
-        <p style="font-style:italic; text-align: center; margin: 10px; font-size: 30px;" id="date">
+    <div id="datebox" style="position: relative; top: 0px; width:fit-content; left: 50%; transform: translateX(-50%);">
+        <p style="font-style:italic; margin: 10px; font-size: 30px;" id="date">
             October 18, 2022
         </p>
     </div>
@@ -74,6 +74,13 @@
         
         async function detectscreensize() {
             const width = window.innerWidth;
+
+            if (width > 825) {
+                document.getElementById('datebox').style.left = "50%"
+            }
+            else {
+                document.getElementById('datebox').style.left = 825/2 + "px"
+            }
 
             if (width < 1000) {
                 if (width > 825) {
@@ -95,8 +102,7 @@
                 document.getElementById('title').style.lineHeight = "50px"
                 document.getElementById('date').style.fontSize = "15px"
 
-                document.getElementById('date').innerHTML = width
-                //document.getElementById('date').innerHTML + " - Mobile Reader (Not Reccomended)"
+                document.getElementById('date').innerHTML = "October 18, 2022 - Mobile Reader (Not Reccomended)"
             }
 
             if (width >= 1000) {
@@ -114,8 +120,7 @@
                 document.getElementById('title').style.lineHeight = "100px"
                 document.getElementById('date').style.fontSize = "30px"
 
-                document.getElementById('date').innerHTML = width
-                //document.getElementById('date').innerHTML + " - Mobile Reader (Not Reccomended)"
+                document.getElementById('date').innerHTML = "October 18, 2022"
             }
         }
         
